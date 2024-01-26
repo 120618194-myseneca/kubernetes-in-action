@@ -10,13 +10,8 @@ var handler = function(request, response) {
   // Check if a version environment variable is set, default to 'default'
   const version = process.env.VERSION || 'default';
 
-  response.end(`You've hit ${os.hostname()} - Version: ${version}\n`);
+  response.end(`You've hit ${os.hostname()} - ${version}\n`);
 };
 
-// Get the desired port from the command line arguments or default to 8080
-const port = process.argv[2] || 8080;
-
 var www = http.createServer(handler);
-www.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+www.listen(8080);
